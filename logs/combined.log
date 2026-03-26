@@ -1,0 +1,19 @@
+21:31:56 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+21:32:44 [[32minfo[39m] GET /health {"status":200,"ms":12,"ip":"::1"}
+21:33:50 [[33mwarn[39m] POST /file {"status":400,"ms":10,"ip":"::1"}
+21:35:46 [[32minfo[39m] Loading file {"filePath":"uploads\\fa9d77af4c014fec410fc33e9cb177b4.txt","ext":".txt"}
+21:35:48 [[32minfo[39m] Cache cleared
+21:35:48 [[32minfo[39m] POST /file {"status":201,"ms":1581,"ip":"::1"}
+21:36:49 [[32minfo[39m] Chat answered {"sessionId":"test","query":"What is Smit current job and company?","chunks":5,"sources":["data.txt","smit_profile.txt"]}
+21:36:49 [[32minfo[39m] POST / {"status":200,"ms":495,"ip":"::1"}
+21:37:17 [[32minfo[39m] Chat answered {"sessionId":"test","query":"What is Smit education background?","chunks":5,"sources":["data.txt","smit_profile.txt"]}
+21:37:17 [[32minfo[39m] POST / {"status":200,"ms":1030,"ip":"::1"}
+21:37:38 [[32minfo[39m] Chat answered {"sessionId":"test","query":"What certifications does Smit have?","chunks":5,"sources":["data.txt","smit_profile.txt"]}
+21:37:38 [[32minfo[39m] POST / {"status":200,"ms":480,"ip":"::1"}
+21:38:00 [[32minfo[39m] Chat answered {"sessionId":"test","query":"Tell me surname of Smit","chunks":5,"sources":["smit_profile.txt","data.txt"]}
+21:38:00 [[32minfo[39m] POST / {"status":200,"ms":1070,"ip":"::1"}
+21:38:15 [[32minfo[39m] Chat answered {"sessionId":"test","query":"smit agola","chunks":5,"sources":["smit_profile.txt","data.txt"]}
+21:38:15 [[32minfo[39m] POST / {"status":200,"ms":662,"ip":"::1"}
+21:41:56 [[32minfo[39m] Cache cleanup: removed 1 expired entries
+12:49:47 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+12:49:49 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
