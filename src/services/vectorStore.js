@@ -3,6 +3,8 @@ import { pipeline } from "@xenova/transformers";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { LocalIndex } from "vectra";
 
+// ── Embedder singleton ────────────────────────────────────────────────────────
+
 let embedder = null;
 
 async function getEmbedder() {
@@ -20,6 +22,22 @@ async function embedText(text) {
   return Array.from(output.data);
 }
 
+// ── Vectra index singleton ────────────────────────────────────────────────────
+
+let _index = null;
+
+async function getIndex() {
+  if (!_index) {
+    _index = new LocalIndex(path.resolve("data", "vectra-index"));
+    if (!(await _index.isIndexCreated())) {
+      await _index.createIndex();
+    }
+  }
+  return _index;
+}
+
+// ── Public API ────────────────────────────────────────────────────────────────
+
 export async function ingestText(text, metadata = {}) {
   const splitter = new RecursiveCharacterTextSplitter({
     chunkSize: 500,
@@ -31,78 +49,83 @@ export async function ingestText(text, metadata = {}) {
   ]);
 
   const sourceName = metadata.source ?? "unknown";
-  const sourceType = metadata.type ?? "file";
-
-  const sourceResult = await query(
-    `INSERT INTO sources (name, type, chunk_count)
-     VALUES ($1, $2, $3)
-     RETURNING id`,
-    [sourceName, sourceType, docs.length]
-  );
-  const sourceId = sourceResult.rows[0].id;
+  const index = await getIndex();
 
   for (let i = 0; i < docs.length; i++) {
     const content = docs[i].pageContent;
     const vector = await embedText(content);
-    const vectorStr = `[${vector.join(",")}]`;
 
-    await query(
-      `INSERT INTO chunks (source_id, content, embedding, chunk_index)
-       VALUES ($1, $2, $3::vector, $4)`,
-      [sourceId, content, vectorStr, i]
-    );
+    await index.insertItem({
+      vector,
+      metadata: {
+        content,
+        source: sourceName,
+        chunkIndex: i,
+      },
+    });
   }
 
   console.log(`Ingested ${docs.length} chunks from "${sourceName}"`);
-  return { chunks: docs.length, sourceId, source: sourceName };
+  return { chunks: docs.length, source: sourceName };
 }
 
 export async function queryChunks(queryText, topK = 5) {
+  const index = await getIndex();
   const vector = await embedText(queryText);
-  const vectorStr = `[${vector.join(",")}]`;
 
-  const result = await query(
-    `SELECT
-       c.content,
-       c.chunk_index,
-       s.name AS source,
-       1 - (c.embedding <=> $1::vector) AS score
-     FROM chunks c
-     JOIN sources s ON s.id = c.source_id
-     ORDER BY c.embedding <=> $1::vector
-     LIMIT $2`,
-    [vectorStr, topK]
-  );
+  const results = await index.queryItems(vector, topK);
 
-  return result.rows.map((row) => ({
-    text: row.content,
-    source: row.source,
-    score: Math.round(parseFloat(row.score) * 100) / 100,
+  return results.map(({ item, score }) => ({
+    text: item.metadata.content,
+    source: item.metadata.source,
+    score: Math.round(score * 100) / 100,
   }));
 }
 
 export async function listSources() {
-  const result = await query(
-    `SELECT name, type, ingested_at, chunk_count
-     FROM sources
-     ORDER BY ingested_at DESC`
-  );
-  return result.rows;
+  const index = await getIndex();
+  const items = await index.listItems();
+
+  // Deduplicate by source name
+  const seen = new Map();
+  for (const item of items) {
+    const src = item.metadata.source ?? "unknown";
+    if (!seen.has(src)) {
+      seen.set(src, { name: src, chunkCount: 0 });
+    }
+    seen.get(src).chunkCount++;
+  }
+
+  return Array.from(seen.values());
 }
 
 export async function deleteSource(sourceName) {
-  const result = await query(
-    `DELETE FROM sources WHERE name = $1 RETURNING id, name`,
-    [sourceName]
-  );
-  return result.rows[0] ?? null;
+  const index = await getIndex();
+  const items = await index.listItems();
+
+  let deleted = 0;
+  for (const item of items) {
+    if (item.metadata.source === sourceName) {
+      await index.deleteItem(item.id);
+      deleted++;
+    }
+  }
+
+  if (deleted === 0) return null;
+  console.log(`Deleted ${deleted} chunks for source "${sourceName}"`);
+  return { name: sourceName, chunksDeleted: deleted };
 }
 
 export async function clearIndex() {
-  await query(`TRUNCATE sources CASCADE`);
+  const index = await getIndex();
+  const items = await index.listItems();
+  for (const item of items) {
+    await index.deleteItem(item.id);
+  }
   console.log("All sources and chunks cleared");
 }
 
 export async function initVectorStore() {
-  console.log("Vector store ready (PostgreSQL + pgvector)");
+  await getIndex(); // ensures index directory + files are created on startup
+  console.log("Vector store ready (vectra local index)");
 }

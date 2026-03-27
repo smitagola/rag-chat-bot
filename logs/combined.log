@@ -17,3 +17,58 @@
 21:41:56 [[32minfo[39m] Cache cleanup: removed 1 expired entries
 12:49:47 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
 12:49:49 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+22:44:44 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+22:45:06 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:45:08 [[32minfo[39m] URL loaded {"url":"https://www.lastweekinaws.com/blog/","chars":4148}
+22:45:08 [[31merror[39m] query is not defined {"status":500,"path":"/api/v1/ingest/url","method":"POST"}
+ReferenceError: query is not defined
+    at ingestText (file:///C:/Users/Dell/Desktop/rag-chat-bot/src/services/vectorStore.js:36:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///C:/Users/Dell/Desktop/rag-chat-bot/src/routes/ingest.js:75:22
+22:45:08 [[31merror[39m] POST /api/v1/ingest/url {"status":500,"ms":2182,"ip":"::1"}
+22:47:36 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+22:47:40 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:47:41 [[32minfo[39m] URL loaded {"url":"https://www.lastweekinaws.com/blog/","chars":4148}
+22:47:49 [[31merror[39m] sourceId is not defined {"status":500,"path":"/api/v1/ingest/url","method":"POST"}
+ReferenceError: sourceId is not defined
+    at ingestText (file:///C:/Users/Dell/Desktop/rag-chat-bot/src/services/vectorStore.js:57:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///C:/Users/Dell/Desktop/rag-chat-bot/src/routes/ingest.js:75:22
+22:47:49 [[31merror[39m] POST /api/v1/ingest/url {"status":500,"ms":8333,"ip":"::1"}
+22:48:19 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:48:20 [[31merror[39m] Request failed with status code 403 {"status":403,"path":"/api/v1/ingest/url","method":"POST"}
+22:48:20 [[33mwarn[39m] POST /api/v1/ingest/url {"status":403,"ms":196,"ip":"::1"}
+22:49:38 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:49:38 [[31merror[39m] Request failed with status code 403 {"status":403,"path":"/api/v1/ingest/url","method":"POST"}
+22:49:38 [[33mwarn[39m] POST /api/v1/ingest/url {"status":403,"ms":154,"ip":"::1"}
+22:51:41 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:51:42 [[32minfo[39m] URL loaded {"url":"https://www.lastweekinaws.com/blog/","chars":4148}
+22:51:42 [[31merror[39m] sourceId is not defined {"status":500,"path":"/api/v1/ingest/url","method":"POST"}
+ReferenceError: sourceId is not defined
+    at ingestText (file:///C:/Users/Dell/Desktop/rag-chat-bot/src/services/vectorStore.js:57:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///C:/Users/Dell/Desktop/rag-chat-bot/src/routes/ingest.js:75:22
+22:51:42 [[31merror[39m] POST /api/v1/ingest/url {"status":500,"ms":778,"ip":"::1"}
+22:52:15 [[32minfo[39m] RAG server running {"port":3000,"env":"development","docs":"http://localhost:3000/api/v1/health"}
+22:52:27 [[32minfo[39m] Fetching URL {"url":"https://www.lastweekinaws.com/blog/"}
+22:52:29 [[32minfo[39m] URL loaded {"url":"https://www.lastweekinaws.com/blog/","chars":4148}
+22:52:30 [[32minfo[39m] Cache cleared
+22:52:30 [[32minfo[39m] POST /url {"status":201,"ms":2764,"ip":"::1"}
+22:53:31 [[32minfo[39m] Chat answered {"sessionId":"test","query":"tell me about aws","chunks":5,"sources":["https://www.lastweekinaws.com/blog/"]}
+22:53:31 [[32minfo[39m] POST / {"status":200,"ms":1044,"ip":"::1"}
+22:54:01 [[32minfo[39m] Chat answered {"sessionId":"test","query":"tell latest headline news of aws","chunks":5,"sources":["https://www.lastweekinaws.com/blog/"]}
+22:54:01 [[32minfo[39m] POST / {"status":200,"ms":748,"ip":"::1"}
+22:55:40 [[32minfo[39m] Fetching URL {"url":"https://aws.amazon.com/blogs/aws/"}
+22:55:40 [[32minfo[39m] URL loaded {"url":"https://aws.amazon.com/blogs/aws/","chars":3045}
+22:55:41 [[32minfo[39m] Cache cleared
+22:55:41 [[32minfo[39m] POST /url {"status":201,"ms":803,"ip":"::1"}
+22:55:49 [[32minfo[39m] Chat answered {"sessionId":"test","query":"tell latest headline news of aws","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
+22:55:49 [[32minfo[39m] POST / {"status":200,"ms":914,"ip":"::1"}
+22:56:22 [[32minfo[39m] Chat answered {"sessionId":"test","query":"Some thing about Customize your AWS","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
+22:56:22 [[32minfo[39m] POST / {"status":200,"ms":571,"ip":"::1"}
+22:56:58 [[32minfo[39m] Chat answered {"sessionId":"test","query":"Who is AWS heros","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
+22:56:58 [[32minfo[39m] POST / {"status":200,"ms":913,"ip":"::1"}
+22:57:32 [[32minfo[39m] Chat answered {"sessionId":"test","query":"new of aws on March 16, 2026","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
+22:57:32 [[32minfo[39m] POST / {"status":200,"ms":915,"ip":"::1"}
+22:57:53 [[32minfo[39m] Chat answered {"sessionId":"test","query":"Twenty years of Amazon S3 and building what’s next","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
+22:57:53 [[32minfo[39m] POST / {"status":200,"ms":912,"ip":"::1"}
