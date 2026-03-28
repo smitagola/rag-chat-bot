@@ -1,5 +1,8 @@
 import "dotenv/config";
 import express from "express";
+import pkg from "cors";
+const cors = pkg; // ✅ cors is the default export itself, NOT pkg.cors
+
 import { config } from "./config/index.js";
 import { logger } from "./utils/logger.js";
 import { initVectorStore } from "./services/vectorStore.js";
@@ -18,15 +21,41 @@ if (!config.groqApiKey) {
 
 const app = express();
 
+// ── CORS ──────────────────────────────────────────────────────────────────────
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowed = [
+      "null",                    // file:// pages → browser sends Origin: null
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      "http://localhost:5173",   // Vite
+      "http://localhost:8080",
+    ];
+    if (!origin || allowed.includes(origin)) {
+      callback(null, true);
+    } else {
+      logger.warn("CORS blocked", { origin });
+      callback(new Error(`CORS: origin "${origin}" not allowed`));
+    }
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: false,
+};
+
+// ✅ Preflight OPTIONS before rate limiter — order matters
+app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
+
 // ---- Core middleware ----
 app.use(express.json({ limit: "1mb" }));
 app.use(requestLogger);
-app.use(globalLimiter);
+app.use(globalLimiter);   // rate limiter AFTER cors
 
 // ---- API v1 routes ----
 app.use("/api/v1/ingest", ingestRouter);
-app.use("/api/v1/chat", chatRouter);
-app.use("/api/v1", systemRouter);
+app.use("/api/v1/chat",   chatRouter);
+app.use("/api/v1",        systemRouter);
 
 // ---- 404 + error handlers (must be last) ----
 app.use(notFound);
@@ -40,7 +69,7 @@ async function start() {
     app.listen(config.port, () => {
       logger.info(`RAG server running`, {
         port: config.port,
-        env: config.nodeEnv,
+        env:  config.nodeEnv,
         docs: `http://localhost:${config.port}/api/v1/health`,
       });
     });

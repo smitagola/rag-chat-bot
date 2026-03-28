@@ -72,3 +72,8 @@ ReferenceError: sourceId is not defined
 22:57:32 [[32minfo[39m] POST / {"status":200,"ms":915,"ip":"::1"}
 22:57:53 [[32minfo[39m] Chat answered {"sessionId":"test","query":"Twenty years of Amazon S3 and building what’s next","chunks":5,"sources":["https://aws.amazon.com/blogs/aws/","https://www.lastweekinaws.com/blog/"]}
 22:57:53 [[32minfo[39m] POST / {"status":200,"ms":912,"ip":"::1"}
+21:17:41 [[32minfo[39m] GET /health {"status":200,"ms":4,"ip":"::1"}
+21:18:20 [[32minfo[39m] OPTIONS / {"status":200,"ms":1,"ip":"::1"}
+21:18:41 [[32minfo[39m] OPTIONS / {"status":200,"ms":0,"ip":"::1"}
+21:20:58 [[32minfo[39m] OPTIONS / {"status":200,"ms":1,"ip":"::1"}
+21:22:51 [[32minfo[39m] OPTIONS / {"status":200,"ms":1,"ip":"::1"}
