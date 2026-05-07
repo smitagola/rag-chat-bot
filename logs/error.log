@@ -18,3 +18,8 @@ ReferenceError: sourceId is not defined
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async file:///C:/Users/Dell/Desktop/rag-chat-bot/src/routes/ingest.js:75:22
 22:51:42 [[31merror[39m] POST /api/v1/ingest/url {"status":500,"ms":778,"ip":"::1"}
+20:58:39 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+20:58:39 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:31:33 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:34:36 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:34:36 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}

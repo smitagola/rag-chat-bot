@@ -2,6 +2,7 @@ import path from "path";
 import { pipeline } from "@xenova/transformers";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { LocalIndex } from "vectra";
+import { config } from "../config/index.js";
 
 // ── Embedder singleton ────────────────────────────────────────────────────────
 
@@ -40,8 +41,8 @@ async function getIndex() {
 
 export async function ingestText(text, metadata = {}) {
   const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    chunkOverlap: 80,
+    chunkSize: config.vectorStore.chunkSize,
+    chunkOverlap: config.vectorStore.chunkOverlap,
   });
 
   const docs = await splitter.splitDocuments([

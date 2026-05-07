@@ -19,8 +19,8 @@ export const config = {
 
   vectorStore: {
     indexPath: "./rag-index",
-    chunkSize: 500,
-    chunkOverlap: 80,
+    chunkSize: 1500,
+    chunkOverlap: 200,
     defaultTopK: 5,
   },
 

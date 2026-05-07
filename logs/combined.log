@@ -77,3 +77,45 @@ ReferenceError: sourceId is not defined
 21:18:41 [[32minfo[39m] OPTIONS / {"status":200,"ms":0,"ip":"::1"}
 21:20:58 [[32minfo[39m] OPTIONS / {"status":200,"ms":1,"ip":"::1"}
 21:22:51 [[32minfo[39m] OPTIONS / {"status":200,"ms":1,"ip":"::1"}
+22:44:10 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+20:51:37 [[32minfo[39m] Loading file {"filePath":"uploads/44abeb87a50b6d65df324c88c4454c88.txt","ext":".txt"}
+20:51:45 [[32minfo[39m] Cache cleared
+20:51:45 [[32minfo[39m] POST /file {"status":201,"ms":8739,"ip":"::1"}
+20:58:27 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+20:58:39 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+20:58:39 [[33mwarn[39m] POST /api/v1/chat {"status":401,"ms":817,"ip":"::1"}
+20:58:39 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+20:58:39 [[33mwarn[39m] POST /api/v1/chat {"status":401,"ms":54,"ip":"::1"}
+21:28:21 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:31:33 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:31:33 [[33mwarn[39m] POST /api/v1/chat {"status":401,"ms":463,"ip":"::1"}
+21:34:36 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:34:36 [[33mwarn[39m] POST /api/v1/chat {"status":401,"ms":311,"ip":"::1"}
+21:34:36 [[31merror[39m] 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}} {"status":401,"path":"/api/v1/chat","method":"POST"}
+21:34:36 [[33mwarn[39m] POST /api/v1/chat {"status":401,"ms":109,"ip":"::1"}
+21:36:24 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:37:03 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:40:45 [[32minfo[39m] SIGTERM received — shutting down gracefully
+21:40:47 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:42:17 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"how to add item","chunks":5,"sources":["data.txt","https://www.lastweekinaws.com/blog/","https://aws.amazon.com/blogs/aws/"]}
+21:42:17 [[32minfo[39m] POST / {"status":200,"ms":1184,"ip":"::1"}
+21:45:08 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"how to add item","chunks":5,"sources":["data.txt","https://www.lastweekinaws.com/blog/","https://aws.amazon.com/blogs/aws/"]}
+21:45:08 [[32minfo[39m] POST / {"status":200,"ms":402,"ip":"::1"}
+21:45:26 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"gave me more details","chunks":5,"sources":["data.txt"]}
+21:45:26 [[32minfo[39m] POST / {"status":200,"ms":582,"ip":"::1"}
+21:46:39 [[32minfo[39m] SIGTERM received — shutting down gracefully
+21:46:41 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:46:51 [[32minfo[39m] SIGTERM received — shutting down gracefully
+21:46:54 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:46:58 [[32minfo[39m] SIGTERM received — shutting down gracefully
+21:47:20 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:50:01 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"what is fooddesk","chunks":5,"sources":["qserves-frontend/src/components/admin/MenuScannerModal.tsx","qserves-frontend/src/components/layouts/DashboardLayout.tsx","qserves-frontend/src/pages/StoreManagementPage.tsx","PROJECT_GUIDE"]}
+21:50:01 [[32minfo[39m] POST / {"status":200,"ms":1333,"ip":"::1"}
+21:51:23 [[32minfo[39m] SIGTERM received — shutting down gracefully
+21:51:25 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+21:52:26 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"how to add order.","chunks":5,"sources":["qserves-backend/src/models/dborder.ts","qserves-backend/src/library/sendInvoicePDF.ts","qserves-frontend/src/pages/Dashboard.tsx"]}
+21:52:26 [[32minfo[39m] POST / {"status":200,"ms":1403,"ip":"::1"}
+21:53:01 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"i am getting issue for adding category how to solve this .","chunks":5,"sources":["qserves-frontend/src/components/admin/CategoryModal.tsx","qserves-frontend/src/pages/MenuItemsPage.tsx","qserves-backend/src/models/dbproduct.ts","qserves-frontend/src/pages/admin/InventoryPage.tsx"]}
+21:53:01 [[32minfo[39m] POST / {"status":200,"ms":1017,"ip":"::1"}
+21:54:07 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"category add nathi thati","chunks":5,"sources":["qserves-frontend/src/components/admin/InventoryItemModal.tsx","qserves-frontend/src/components/admin/CategoryModal.tsx","qserves-frontend/src/pages/MenuItemsPage.tsx","qserves-frontend/src/components/common/ChatBot.tsx"]}
+21:54:07 [[32minfo[39m] POST / {"status":200,"ms":818,"ip":"::1"}
