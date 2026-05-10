@@ -29,7 +29,7 @@ router.post("/", validate(chatSchema), async (req, res, next) => {
 
     if (chunks.length === 0) {
       return res.json({
-        answer: "I don't have that information. Please ingest some documents first.",
+        answer: "I'm so sorry, but I don't currently have the information needed to answer that specific question. However, I want to make sure you get this resolved! Please reach out to our Human Support team, and they will be happy to assist you further.",
         chunks_used: 0,
         sources: [],
         sessionId,

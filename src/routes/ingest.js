@@ -16,7 +16,7 @@ const upload = multer({
   dest: config.upload.dest,
   limits: { fileSize: config.upload.maxFileSizeMb * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
-    const allowed = [".txt", ".pdf", ".docx"];
+    const allowed = [".txt", ".pdf", ".docx", ".md"];
     const ext = "." + file.originalname.split(".").pop().toLowerCase();
     if (allowed.includes(ext)) return cb(null, true);
     cb(new Error(`File type "${ext}" not allowed. Use: ${allowed.join(", ")}`));

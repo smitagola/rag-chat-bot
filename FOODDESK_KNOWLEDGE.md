@@ -45,3 +45,19 @@ FoodDesk (formerly Qserves) is your all-in-one restaurant management system. Use
 
 ## 7. Getting Extra Help
 - If you have an issue that isn't covered here, click the **"Human Support"** button in the chat. This will connect you directly with our support team on WhatsApp.
+
+## 8. Mobile Dashboard & Analytics
+- **Access Everywhere**: FoodDesk is fully optimized for mobile devices with a handy bottom navigation bar.
+- **Analytics**: Scroll to the Analytics section on the dashboard to view interactive charts displaying revenue and category performance over time.
+
+## 9. AI-Powered Menu Scanner
+- **Digitize Print Menus**: Go to the Inventory/Menu page and upload a photo of your printed menu. Our AI will automatically add the products, assign them to categories, and set their prices.
+- **Auto-Generate Images**: If a menu item lacks a photo, the AI will generate a beautiful, professional image for it automatically as soon as it is added.
+
+## 10. Tracking Order Origins (Staff vs. Customer)
+- **Waitstaff Orders**: If an order is taken by a waiter using the admin dashboard, the waiter's name will appear on the Orders page.
+- **Customer Orders**: If a customer scans the QR code at their table to order directly, the order will clearly show "Customer" as the origin.
+
+## 11. Handling Table Errors & Broken Codes
+- **Missing Tables**: If a table QR code is scanned but the table was removed or has an invalid ID, the customer will see a safe "Table Not Found" error page.
+- **Solution**: Check your Store Management -> Tables list and print a new, updated QR code if needed.

@@ -119,3 +119,30 @@ ReferenceError: sourceId is not defined
 21:53:01 [[32minfo[39m] POST / {"status":200,"ms":1017,"ip":"::1"}
 21:54:07 [[32minfo[39m] Chat answered {"sessionId":"session_4ujn8m","query":"category add nathi thati","chunks":5,"sources":["qserves-frontend/src/components/admin/InventoryItemModal.tsx","qserves-frontend/src/components/admin/CategoryModal.tsx","qserves-frontend/src/pages/MenuItemsPage.tsx","qserves-frontend/src/components/common/ChatBot.tsx"]}
 21:54:07 [[32minfo[39m] POST / {"status":200,"ms":818,"ip":"::1"}
+10:33:11 [[32minfo[39m] RAG server running {"port":3001,"env":"development","docs":"http://localhost:3001/api/v1/health"}
+10:33:39 [[32minfo[39m] Chat answered {"sessionId":"session_zq08rf","query":"hello","chunks":5,"sources":["qserves-backend/src/library/sendInvoicePDF.ts","qserves-frontend/src/components/admin/InventoryItemModal.tsx","qserves-frontend/src/pages/admin/AdminDashboard.tsx"]}
+10:33:39 [[32minfo[39m] POST / {"status":200,"ms":1478,"ip":"::1"}
+10:37:21 [[31merror[39m] File type ".md" not allowed. Use: .txt, .pdf, .docx {"status":500,"path":"/api/v1/ingest/file","method":"POST"}
+Error: File type ".md" not allowed. Use: .txt, .pdf, .docx
+    at fileFilter (file:///home/smit-agola/Desktop/rag-chat-bot/src/routes/ingest.js:22:8)
+    at Multipart.<anonymous> (/home/smit-agola/Desktop/rag-chat-bot/node_modules/multer/lib/make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (/home/smit-agola/Desktop/rag-chat-bot/node_modules/busboy/lib/types/multipart.js:358:14)
+    at HeaderParser.push (/home/smit-agola/Desktop/rag-chat-bot/node_modules/busboy/lib/types/multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (/home/smit-agola/Desktop/rag-chat-bot/node_modules/busboy/lib/types/multipart.js:394:37)
+    at feed (/home/smit-agola/Desktop/rag-chat-bot/node_modules/streamsearch/lib/sbmh.js:219:14)
+    at SBMH.push (/home/smit-agola/Desktop/rag-chat-bot/node_modules/streamsearch/lib/sbmh.js:104:16)
+    at Multipart._write (/home/smit-agola/Desktop/rag-chat-bot/node_modules/busboy/lib/types/multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Writable.write (node:internal/streams/writable:508:10)
+    at IncomingMessage.ondata (node:internal/streams/readable:1012:24)
+    at IncomingMessage.emit (node:events:508:28)
+    at Readable.read (node:internal/streams/readable:784:10)
+    at flow (node:internal/streams/readable:1290:53)
+10:37:21 [[31merror[39m] POST /api/v1/ingest/file {"status":500,"ms":7,"ip":"::1"}
+10:37:54 [[32minfo[39m] Loading file {"filePath":"uploads/d6b68b8710b32fbde921632687052421.txt","ext":".txt"}
+10:37:55 [[32minfo[39m] Cache cleared
+10:37:55 [[32minfo[39m] POST /file {"status":201,"ms":571,"ip":"::1"}
+10:40:23 [[32minfo[39m] GET /health {"status":200,"ms":2,"ip":"::1"}
+10:40:30 [[32minfo[39m] GET /sources {"status":200,"ms":5,"ip":"::1"}
