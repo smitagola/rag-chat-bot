@@ -33,6 +33,7 @@ const corsOptions = {
       "http://127.0.0.1:5173",
       "http://127.0.0.1:5174",
       "http://localhost:8080",
+      "https://d13b173nwj7s02.cloudfront.net"
     ];
     if (!origin || allowed.includes(origin)) {
       callback(null, true);
@@ -57,8 +58,8 @@ app.use(globalLimiter);   // rate limiter AFTER cors
 
 // ---- API v1 routes ----
 app.use("/api/v1/ingest", ingestRouter);
-app.use("/api/v1/chat",   chatRouter);
-app.use("/api/v1",        systemRouter);
+app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1", systemRouter);
 
 // ---- 404 + error handlers (must be last) ----
 app.use(notFound);
@@ -72,7 +73,7 @@ async function start() {
     app.listen(config.port, () => {
       logger.info(`RAG server running`, {
         port: config.port,
-        env:  config.nodeEnv,
+        env: config.nodeEnv,
         docs: `http://localhost:${config.port}/api/v1/health`,
       });
     });
